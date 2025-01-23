@@ -99,7 +99,7 @@ class App extends React.Component {
 
     return (
       <div className="app">
-        <h1>Shop Easy</h1>
+        <h1>My Ecommerce Cart</h1>
 
         {/* Search box */}
         <div className="search-sort">
