@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 function Cart({ cart, onRemove, onUpdateQuantity }) {
   // Calculate the total price of the items in the cart
