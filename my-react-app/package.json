@@ -5,7 +5,8 @@
   "homepage": "https://showay3000.github.io/Shopping-Cart/",
   "type": "module",
   "scripts": {
-        "predeploy": "npm run build",
+    "dev": "vite", 
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "build": "vite build",
     "lint": "eslint .",
