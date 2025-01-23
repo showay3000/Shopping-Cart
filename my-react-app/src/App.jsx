@@ -1,4 +1,4 @@
-// Import React only
+
 import React from 'react'
 import './App.css'
 
@@ -20,7 +20,10 @@ const products = [
   { id: 14, name: "Backpack", price: 49.99 },
   { id: 15, name: "Scarf", price: 24.99 },
   { id: 16, name: "Gloves", price: 19.99 },
-  
+  { id: 17, name: "Tank Top", price: 17.99 },
+  { id: 18, name: "Shorts", price: 34.99 },
+  { id: 19, name: "Rain Jacket", price: 64.99 },
+  { id: 20, name: "Wallet", price: 39.99 }
 ]
 
 // Create a class that extends React.Component
