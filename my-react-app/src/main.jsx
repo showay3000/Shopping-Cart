@@ -4,7 +4,10 @@ import './index.css'
 import App from './App.jsx'
 import { HashRouter } from 'react-router-dom'
 
-createRoot(document.getElementById('root')).render(
+const rootElement = document.getElementById('root');
+const root = createRoot(rootElement);
+
+root.render(
   <StrictMode>
     <HashRouter>
       <App />
