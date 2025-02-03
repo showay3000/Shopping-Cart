@@ -1,16 +1,11 @@
+/* Global Variables */
 :root {
-  font-family: 'Roboto', sans-serif, system-ui, Avenir, Helvetica, Arial;
-  line-height: 1.6;
-  font-weight: 400;
+  /* Typography */
+  --font-family: 'Roboto', sans-serif, system-ui, Avenir, Helvetica, Arial;
+  --line-height: 1.6;
+  --font-weight: 400;
 
-  color: #c6c9cf;
-  background-color: #f7fafc;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
+  /* Colors */
   --primary-color: #6366f1;
   --primary-hover: #4f46e5;
   --secondary-color: #ec4899;
@@ -19,16 +14,21 @@
   --background-color: #f7fafc;
   --button-text-color: white;
   --focus-outline: #93c5fd;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --shadow-hover-color: rgba(0, 0, 0, 0.15);
 }
 
-a {
-  font-weight: 600;
-  color: var(--primary-color);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-a:hover {
-  color: var(--primary-hover);
+/* Global Styles */
+html {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight);
+  line-height: var(--line-height);
+  color: #c6c9cf;
+  background-color: var(--background-color);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -42,6 +42,19 @@ body {
   color: var(--text-color);
 }
 
+/* Links */
+a {
+  font-weight: 600;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+/* Headings */
 h1 {
   font-size: 2.5em;
   line-height: 1.2;
@@ -50,6 +63,7 @@ h1 {
   color: var(--text-color);
 }
 
+/* Buttons */
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -61,22 +75,26 @@ button {
   color: var(--button-text-color);
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px var(--shadow-color);
 }
+
 button:hover {
   background-color: var(--primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 6px var(--shadow-hover-color);
 }
+
 button:focus,
 button:focus-visible {
   outline: 3px solid var(--focus-outline);
   outline-offset: 2px;
 }
 
+/* Secondary Button */
 button.secondary {
   background-color: var(--secondary-color);
 }
+
 button.secondary:hover {
   background-color: var(--secondary-hover);
 }

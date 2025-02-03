@@ -1,63 +1,33 @@
+import React from "react";
 
-
-function Cart({ cart, onRemove, onUpdateQuantity }) {
-  // Calculate the total price of the items in the cart
-  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
-
-  // If the cart is empty, display a message
-  if (cart.length === 0) {
-    return (
-      <div className="cart">
-        <h2>Shopping Cart</h2>
-        <p>Your cart is empty</p>
-      </div>
-    )
-  }
-
-  // Render the list of items in the cart
+// Component to display the shopping cart
+const Cart = ({ cart, adjustQuantity, totalPrice, emptyCart }) => {
   return (
-    <div className="cart">
+    <div>
       <h2>Shopping Cart</h2>
-      {/* Loop through each item in the cart and display it */}
-      {cart.map(item => (
-        <div key={item.id} className="cart-item">
-          <div className="item-info">
-            <h3>{item.name}</h3> {/* Display the item name */}
-            <p>${item.price}</p> {/* Display the item price */}
-          </div>
-          <div className="item-controls">
-            {/* Button to decrease the item quantity */}
-            <button 
-              onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}
-              className="quantity-btn"
-            >
-              -
-            </button>
-            {/* Display the current item quantity */}
-            <span>{item.quantity}</span>
-            {/* Button to increase the item quantity */}
-            <button 
-              onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
-              className="quantity-btn"
-            >
-              +
-            </button>
-            {/* Button to remove the item from the cart */}
-            <button 
-              onClick={() => onRemove(item.id)}
-              className="remove-btn"
-            >
-              Remove
-            </button>
-          </div>
-        </div>
-      ))}
+      {/* If the cart is empty, show a message */}
+      {Object.keys(cart).length === 0 ? (
+        <p>Your cart is empty.</p>
+      ) : (
+        <ul>
+          {/* List each item in the cart with its ID and quantity */}
+          {Object.entries(cart).map(([id, qty]) => (
+            <li key={id}>
+              Product ID: {id}, Quantity: {qty}
+              {/* Button to decrease the quantity of a product */}
+              <button onClick={() => adjustQuantity(id, qty - 1)}>-</button>
+              {/* Button to increase the quantity of a product */}
+              <button onClick={() => adjustQuantity(id, qty + 1)}>+</button>
+            </li>
+          ))}
+        </ul>
+      )}
       {/* Display the total price of all items in the cart */}
-      <div className="cart-total">
-        <h3>Total: ${total}</h3>
-      </div>
+      <p>Total Price: ${totalPrice()}</p>
+      {/* Button to empty the entire cart */}
+      <button onClick={emptyCart}>Empty Cart</button>
     </div>
-  )
-}
+  );
+};
 
 export default Cart;
